@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Introduction</title>    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="introduction.css">
+
+
+<script src="introduction.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="introductionjquary.js"></script>
+</head>
+    
+<body>
+     <?php
+echo "My first PHP script!";
+?> 
+<div class="header">
+  <h1>Carlos CS313</h1>
+</div>
+ <div class="row">
+  <div class="col-3 col-s-3 menu">
+    <ul>
+      <li><a href="assignments.html">Link to assignments</a></li>
+     
+    </ul>
+  </div>
+
+  <div class="col-6 col-s-9">
+    <h1>Carlos' Family</h1>
+          <p><img src = "IMG_4154.JPG" alt ="family picture" syle= "width:7px;height:7px;margin-left:15px;"> We got sealed in the Guatemla city Temple. My daughter Bautism will be this year. hurray.</p>
+         
+        </div>
+     <div class="col-3 col-s-12">
+         <div class="aside">
+             <h2>What is my favorite class?</h2>
+             <p>CS313</p>
+             <h2>Did you know?</h2>
+             <p>That if you click on the image. the image will disapear</p>
+             <h2>Did you know?</h2>
+             <p id = "disapear", onclick="disapear()">That the image has jquery, and this text if you click on it. the text  will disapear with java</p>
+             
+             
+             <?php include "introduction.php"; ?>  
+             
+             <!--<?php 
+echo "Today's date in various formats:" . "\n"; 
+  
+echo date("d/m/Y") . "\n"; 
+echo date("d-m-Y") . "\n"; 
+echo date("d.m.Y") . "\n"; 
+echo date("d.M.Y/D"); 
+?> -->
+         </div>
+     </div>
+     </div>
+    <div class="footer">
+        <p>This Is my introduction page.</p>
+    </div>
+    
+</body>
+</html>
