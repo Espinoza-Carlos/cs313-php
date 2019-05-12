@@ -1,0 +1,152 @@
+  #whole{
+    visibility: hidden;
+    }
+    input:focus{
+        background-color: lavender;
+    }
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+td{
+    
+    
+}
+body{
+    background-color: lightgray;
+}
+form {
+   border-radius: 4px;
+   font-size: 12px;
+   margin:0;
+   font-family: Verdana, Geneva, sans-serif;
+   float: left;
+   padding: 6px;
+   max-width: 700px;
+   border: 1px solid rgb(0, 90, 136);
+   background-color: darkgray;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+header {
+	margin-left: 600px;
+
+}
+
+nav {
+	float: left;
+	max-width: 750px;
+}
+
+section {
+	overflow: auto;
+}
+
+#contactContent { 
+	margin-top:20px; 
+	margin-left:20px;
+}
+
+#shopping {
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+h2 {
+   border-bottom-style: solid;
+}
+
+label{
+    display:inline-block;
+    width:100px;
+}
+
+#contactContent input { 
+	margin-left:20px; 
+	margin-bottom:5px; 
+	padding-right: 50px;
+	font-style: italic;
+	font-color: lightgrey;
+}
+
+select { 
+	margin-left:20px; 
+	margin-bottom:5px; 
+}
+
+#formButtons {
+	margin-top: 15px;
+	margin-left: 25%;
+}
+
+table, th, tr, td {
+	table-layout: fixed;
+	text-align: center;
+   border: 1px solid rgb(0, 90, 136);
+   border-radius: 2px;
+   padding: 5px;
+   border-collapse: collapse;
+}
+
+ 
