@@ -16,4 +16,23 @@ body{
   content: "";
   display: table;
   clear: both;
+
 }
+table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  padding: inherit;
+
+ }
+td, th {
+  border: 2px solid #000000;
+  text-align: left;
+  padding: 8px;
+
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+
+}
+
