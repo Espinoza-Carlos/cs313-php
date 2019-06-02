@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+body{
+    background-color: lightblue;
+}
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 10%;
+ padding: inherit;
+ }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  padding: inherit;
+
+ }
+td, th {
+  border: 2px solid #000000;
+  text-align: left;
+  padding: 8px;
+
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+
+}
+
