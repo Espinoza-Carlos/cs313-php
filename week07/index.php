@@ -11,7 +11,7 @@
   <li><a class="active" href="../assignments.html">Return to assignments</a></li>
   
 </ul>    
-<h2>Mothers food list</h2>
+<h2>Food Storage list</h2>
 <br>
 <div>
 <h4>You can select a product by category name</h4>
