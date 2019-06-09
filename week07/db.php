@@ -40,6 +40,31 @@ function selectByid2($db, $id) {
  return $rows;
 }
 
+function insertUser($db, $login, $password) {
+   $filteredLogin = filter_var($login, FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+   $filteredPassword = filter_var($password, FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+   if(null == $filteredLogin || null == $filteredPassword) {
+      return null;
+   }
+   $stmt = $db->prepare('INSERT INTO ta07_users (login, password) VALUES (:login,:password)');
+   $stmt->bindParam(':login', $filteredLogin, PDO::PARAM_STR, 40);
+   $stmt->bindParam(':password', $filteredPassword, PDO::PARAM_STR, 40);
+   $stmt->execute();
+   return $db->lastInsertId('ta07_users_id_seq');
+}
+
+function selectByLogin($db, $login) {
+   $filteredLogin = filter_var($login, FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+   if(null == $filteredLogin) {
+      return null;
+   }
+   $stmt = $db->prepare('SELECT * FROM ta07_users WHERE login=:login');
+   $stmt->bindParam(':login', $filteredLogin, PDO::PARAM_STR, 40);
+   $stmt->execute();
+   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   return $rows;
+}
+
 function getDb()
 {
  return getHerokuDb();
