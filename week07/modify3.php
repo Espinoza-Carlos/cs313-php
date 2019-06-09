@@ -25,28 +25,43 @@
         
         foreach($allRows as $r) 
         {
-            echo '<form action="delete3.php" method="GET">
-           <label for="food_item">Food Item</label>    
-              <input type="text" value="'.$r['food_item'].'" name="food_item" id="food_item">
-              </form>';
-            //echo '<form action="delete3.php" method="GET">
-              //<input type="hidden" name="id" value="'.$id.'"><input type="submit" name="value" value="DELETE">
-              //</form>'; 
-            //.$r['id'].
-            //    echo'<tr>'. '<td>' .$r['id'].   '</td>'.'<td>' .$r['food_item'].   '</td>'. '<td>'  //.$r['category_name']. '</td>'. '<td>' .$r['description']. '</td>'. '<td>'. $r['food_unit']. '</td>'. //'<td>' . $r['count']. '</td>'.'</tr>';
-        }
-        
-        
-        
-        
-    }
- 
-
-    
-
-  
-
-?>        
-
+            echo '<form action="modify4.php" method="POST">
+           <input type="hidden" value="'.$r['id'].'" name="id" id="id"><br>
+           <label for="food_item"><b>Food Item</label>    
+           <input type="text" value="'.$r['food_item'].'" name="food_item" id="food_item"><br>
+           <label for="category_name">category_name</label>          
+           <select name ="category_name">
+           <option selected=>'.$r['category_name'].'</option>
+           <option value="Fruit">Fruit</option>
+           <option value="Vegetable">Vegetable</option>
+           <option value="Bread">Bread</option>
+           <option value="Produce">Produce</option>
+           <opti on value="Can">Can</option>
+           <option value="Dairy">Dairy</option>
+           </select><br>
+           <label for="description">description</label>          
+           <input name="description" id="description" type="text" value="'.$r['description'].'"><br>
+           <label for="food_unit">food_unit</label>
+           <select name ="food_unit">
+           <option selected=>'.$r['food_unit'].'</option>
+           <option value="gal">Gallon</option>
+           <option value="qt">Quart</option>
+           <option value="pt">Pint</option>
+           <option value="cup">Cup</option>
+           <option value="oz">Ounces</option>
+           <option value="lb">Pounds</option>
+           <option value="kl">kilogram</option>
+           <option value="floz">Fluid Ounce</option>
+           <option value="g">Gram</option>
+           <option value="mg">Milligram</option>
+           </select><br>                
+           <label for="count">count</label>              
+           <input name="count" id="count" type="text" value="'.$r['count'].'"><br>
+           <br /><br />   </b>   
+           <input type="submit" value="Modify in to Database" />
+           </form>' ;
+                   }
+            }
+ ?>        
 </body>
 </html>
