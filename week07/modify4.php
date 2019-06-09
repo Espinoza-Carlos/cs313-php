@@ -1,52 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+<?php
+// get the data from the POST
+$id = $_POST['id'];
+echo $id. "<br>"; 
+$food_item = $_POST['food_item'];
+echo $food_item. "<br>"; 
+$category_name = $_POST['category_name'];
+echo $category_name. "<br>";
+$description = $_POST['description'];
+echo $description. "<br>";
+$food_unit = $_POST['food_unit'];
+echo $food_unit. "<br>";
+$count = $_POST['count'];
+echo $count. "<br>";
+require('db.php');
+$db = getDb();
+try
+{
     
-    <title>Ponder07 details category name</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-     <ul>
-  <li><a class="active" href="index.php">Return to Ponder 06</a></li>
-  
-</ul>    
-<h2>Modify the Food Item to the data base</h2>
-    
-
-   <?php
-   include 'db.php';
-    
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        $id = $_GET['id'];
-        $GLOBALS['z']= id; 
-        $db = getDb();
-        $allRows = selectByid2($db, $id);
-        
-        foreach($allRows as $r) 
-        {
-            echo '<form action="delete3.php" method="GET">
-           <label for="food_item">Food Item</label>    
-              <input type="text" value="'.$r['food_item'].'" name="food_item" id="food_item">
-              </form>';
-            //echo '<form action="delete3.php" method="GET">
-              //<input type="hidden" name="id" value="'.$id.'"><input type="submit" name="value" value="DELETE">
-              //</form>'; 
-            //.$r['id'].
-            //    echo'<tr>'. '<td>' .$r['id'].   '</td>'.'<td>' .$r['food_item'].   '</td>'. '<td>'  //.$r['category_name']. '</td>'. '<td>' .$r['description']. '</td>'. '<td>'. $r['food_unit']. '</td>'. //'<td>' . $r['count']. '</td>'.'</tr>';
-        }
-        
-        
-        
-        
-    }
- 
-
-    
-
-  
-
-?>        
-
-</body>
-</html>
+   //$query = 'UPDATE foodstorage SET(food_item, category_name, description, food_unit, count) VALUES (:food_item, :category_name, :description, :food_unit, :count)';
+   // echo $query. "<br>";
+    //$statement = $db->prepare($query);
+    $statement = $db->prepare('UPDATE foodstorage SET food_item= :food_item, category_name= :category_name, description= :description, food_unit= :food_unit, count= :count WHERE id = :id');
+    $statement->bindValue(':id', $id);
+    $statement->bindValue(':food_item', $food_item);
+    $statement->bindValue(':category_name', $category_name);
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':food_unit', $food_unit);
+    $statement->bindValue(':count', $count);
+    $statement->execute();
+}
+catch (Exception $ex)
+{
+	// Please be aware that you don't want to output the Exception message in
+	// a production environment
+	echo "Error with DB. Details: $ex";
+	die();
+}
+// finally, redirect them to a new page to actually show the topics
+header("Location: details.php");
+die(); // we always include a die after redirects. In this case, there would be no
+       // harm if the user got the rest of the page, because there is nothing else
+       // but in general, there could be things after here that we don't want them
+       // to see.
+?>
