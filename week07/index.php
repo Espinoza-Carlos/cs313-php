@@ -1,3 +1,18 @@
+<?php
+// Start the session
+session_start();
+
+if (isset($_SESSION['UserName']))
+{
+    //$_SESSION['UserName'] = $userName;
+	$userName = $_SESSION['UserName'];
+}
+else
+{
+	header("Location: login.php");
+	die(); // we always include a die after redirects.
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +26,7 @@
   <li><a class="active" href="../assignments.html">Return to assignments</a></li>
   
 </ul>    
-<h2>Food Storage list</h2>
+<h2>Welcome to <?= $userName ?> Food Storage list</h2>
 <br>
 <div>
 <h4>You can select a product by category name</h4>
@@ -99,5 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 </div>        
 <br>    
 <hr>
+<a href="login.php">Sign Out</a>    
 </body>
 </html>
