@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>ASSIGNMENT 9</title>
+  <meta name="description" content="MATH">
+
+</head>
+
+<body style="background-color:powderblue;">
+
+<h1>Welcome to Carlos' the Postal Rate Calculator</h1>
+
+<br/><br/>
+<p style="color:red;">Please enter numbers from 1 to 3 </p>
+  <form action="postalAnswer" method="get">
+    <select name="postageType">
+      <option value="lettersStamped">Letters Stamped</option>
+      <option value="lettersMetered">Letters Metered</option>         
+    </select><br/><br/>
+    <input type="text" name="weight" id = "onlyNumbers" value="" placeholder="Write Item Weight" onkeypress="javascript:return isNumber(event)"><br/>
+
+    <br/>
+
+    <input type="submit" value="SUBMIT">
+
+    <br/><br/>
+
+  </form>
+<form action="postalAnswer" method="get">
+    <select name="postageType">      
+      <option value="largeEnvelopes">Large Envelope</option>
+      <option value="First">First-Class Package Service-Retail</option>
+    </select><br/><br/>
+    <input type="number" name="weight" min="1" max="13" value="" placeholder="Write Item Weight"><br/>
+
+    <br/>
+
+    <input type="submit" value="SUBMIT">
+
+    <br/><br/>
+
+  </form>
+
+</body>
+<script>
+    // WRITE THE VALIDATION SCRIPT.
+    function isNumber(evt) {
+        var ev = evt;
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+        if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+          //if(ev >=1 || ev <=3.5)
+            return false;
+
+        return true;
+    }    
+</script>
+</html>
