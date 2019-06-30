@@ -2,11 +2,7 @@ var express = require("express");
 var app = express();
 app.use(express.static('static_files'));
 
-const fakeDatabase = {
-'Carlos': {job: 'Dentist', pet:'carlos.png'},
-'Ana': {job: 'Oral Surgeon', pet:'Ana.png'}, 
-'Gerardo': {job: 'Orthodontist', pet: 'gerardo.png'}
-};
+
 
 const {Pool} = require("pg");
 const connectionString = process.env.DATABASE_URL || "postgres://familyhistoryuser:elijah@localhost:5432/familyhistorydemo";
