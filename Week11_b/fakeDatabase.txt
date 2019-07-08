@@ -1,0 +1,5 @@
+const fakeDatabase = {
+'Philip': {job: 'professor', pet:'car.jpg'},
+'John': {job: 'student', pet:'dog.jpg'}, 
+'Carol': {job: 'engineer', pet: 'bear.jpg'}
+};
