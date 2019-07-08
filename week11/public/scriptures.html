@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scriptures</title>
+	<script src="scriptures-clientside.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>Search the Scriptures</h1>
+	<input type="text" id="book" placeholder="Book"><button onclick="searchByBook()">Search by Book</button><br>
+	<input type="text" id="topic" placeholder="Topic"><button onclick="searchByTopic()">Search by Topic</button><br>
+	<div>
+		<h2>Results</h2>
+		<ul id="ulScriptures">
+		</ul>
+	</div>
+ 
+</body>
+</html>
