@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>PetsApp</title>
+
+<script src="jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+// write your JavaScript code here
+$(document).ready(() => {
+	//console.log('hello browser');
+
+	$('#readButton').click(() => {
+		const requestURL = 'users/' + $('#nameBox').val();
+		console.log('making ajax request to:', requestURL);
+
+		$.ajax({
+			url: requestURL,
+			type: 'GET',
+			dataType: 'json',
+			success: (data) => {
+				console.log('You received some data!', data);
+
+				if (data.job && data.pet){
+					$('#status').html('Successfully fetched data at URl: ' + requestURL);
+					$('#jobDiv').html('My job is ' + data.job);
+					$('#petImage').attr('src', data.pet).attr('width', '300px');
+				} else {
+					$('#status').html('Error: could not find user at URL: ' + requestURL);
+					$('#jobDiv').html('');
+					$('#petImage').attr('src', '').attr('width', '0px');
+				}
+			}
+		});
+	});
+
+	$('#allUsersButton').click(() => {
+		//console.log('clicked!' + new Date());
+		$.ajax({
+			url: 'users/',
+			type: 'GET', 
+			dataType: 'json',
+			success: (data) => {
+				console.log('You receive some data', data);
+				$('#status').html('All users: ' + data[0] + ', ' + data[1] + ', ' + data[2]);
+				
+			}
+		});
+		});
+    $(document).ajaxError(()=> {
+    	$('#Status').html('Error: unknown ajaxError');
+   
+	});
+	});
+</script>
+
+</head>
+<body>
+  <h1>Welcome to PetsApp!</h1>
+
+  Name: <input id="nameBox" type="text" size="20"/>
+  <button id="readButton">Get profile</button>
+  <button id="allUsersButton">Get all usernames</button>
+
+  <div id="jobDiv"></div>
+  <img id="petImage"></img>
+
+  <hr/>
+
+  <div id="status"></div>
+</body>
+</html>
