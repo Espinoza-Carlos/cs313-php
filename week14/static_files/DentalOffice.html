@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>DentalApp</title>
+
+<script src="jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+// write your JavaScript code here
+$(document).ready(() => {
+	//console.log('hello browser');
+
+	$('#readButton').click(() => {
+		const requestURL = 'users/' + $('#nameBox').val();
+		console.log('making ajax request to:', requestURL);
+
+		$.ajax({
+			url: requestURL, 
+			type: 'GET',
+			dataType: 'json',
+			success: (data) => {
+				console.log('You received some data!', data);
+
+				if (data.job && data.pet){
+					$('#status').html('Successfully fetched data at URl: ' + requestURL);
+					$('#jobDiv').html('My job Title is ' + data.job);
+					$('#petImage').attr('src', data.pet).attr('width', '300px');
+				} else {
+					$('#status').html('Error: could not find user at URL: ' + requestURL);
+					$('#jobDiv').html('');
+					$('#petImage').attr('src', '').attr('width', '0px');
+				}
+			}
+		});
+	});
+
+	$('#allUsersButton').click(() => {
+		//console.log('clicked!' + new Date());
+		$.ajax({
+			url: 'users/',
+			type: 'GET', 
+			dataType: 'json',
+			success: (data) => {
+				console.log('You receive some data', data);
+				$('#status').html('This are our profesionals names: ' + data[0] + ', ' + data[1] + ', ' + data[2]);
+				
+			}  
+		});
+		});
+    $(document).ajaxError(()=> {
+    	$('#Status').html('Error: unknown ajaxError');
+   
+	});
+	});
+</script>
+
+</head>
+<body bgcolor="#E6E6FA">
+	<li><a href="Dental_Home.html">Home</a></li>
+  <h1>Welcome to The Dental Office!</h1>
+  <p>In order to meet our Doctors and Specialists names. <br> Please click on Get all Drs & Specialist names,<br> then to meet them type their name, and press click on get profile to meet their picture<br>to Get the profile is case sensitive. <br>Plese choose one at the time</p>
+
+  Name: <input id="nameBox" type="text" size="20"/>
+
+  <button id="readButton">Get profile</button>
+  <button id="allUsersButton">Get all Drs. & Specialists names</button>
+  <br><br>
+  
+<a href="https://nameless-waters-57593.herokuapp.com/getPerson?id=1">Know Dr Carlos Birthday in Json mode</a> <br>
+<a href="https://nameless-waters-57593.herokuapp.com/getPerson?id=2">Know Oral Surgeon Ana Birthday in Json mode</a> <br>
+<a href="https://nameless-waters-57593.herokuapp.com/getPerson?id=3">Know Orthodontis Gerardo Birthday in Json mode</a> <br>
+ 
+
+  
+
+  <div id="jobDiv"></div>
+  <img id="petImage"></img>
+
+  <hr/>
+
+  <div id="status"></div>
+</body>
+</html>
